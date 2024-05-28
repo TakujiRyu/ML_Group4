@@ -76,4 +76,5 @@ def delete_graph():
         return jsonify({'message': 'Graph not found'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Change the host to '0.0.0.0' and the port to 8080
+    app.run(host='0.0.0.0', port=8080, debug=True)
