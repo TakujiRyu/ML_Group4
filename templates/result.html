@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        function deleteGraph() {
+            fetch('/delete_graph')
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Graph deleted successfully');
+                    } else {
+                        console.error('Failed to delete graph');
+                    }
+                })
+                .catch(error => console.error('Error deleting graph:', error));
+        }
+        window.onload = deleteGraph;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Predicted Laptop Price</h1>
+        <h2>{{ prediction_text }}</h2>
+        <img src="/static/prediction_graph.png" alt="Prediction Graph">
+        <a href="/">Go back to form</a>
+    </div>
+</body>
+</html>

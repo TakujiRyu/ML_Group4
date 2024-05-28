@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Price Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="company">Company:</label>
+            <select id="company" name="company" required>
+                <!-- <option value="Apple">Apple</option> -->
+                <option value="Dell">Dell</option>
+                <option value="HP">HP</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Asus">Asus</option>
+                <option value="Acer">Acer</option>
+                <option value="MSI">MSI</option>
+                <option value="Toshiba">Toshiba</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Microsoft">Microsoft</option>
+                <!-- Add other companies as needed -->
+            </select>
+            
+            <label for="type_name">Type:</label>
+            <select id="type_name" name="type_name" required>
+                <!-- <option value="Ultrabook">Ultrabook</option> -->
+                <option value="Gaming">Gaming</option>
+                <option value="Notebook">Notebook</option>
+                <option value="Netbook">Netbook</option>
+                <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                <option value="Workstation">Workstation</option>
+                <!-- Add other types as needed -->
+            </select>
+            
+            <label for="ram">RAM (GB):</label>
+            <input type="number" id="ram" name="ram" required>
+            
+            <label for="weight">Weight (kg):</label>
+            <input type="number" step="0.01" id="weight" name="weight" required>
+            
+            <label for="touchscreen">Touchscreen:</label>
+            <select id="touchscreen" name="touchscreen">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="ips">IPS:</label>
+            <select id="ips" name="ips">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="ppi">PPI:</label>
+            <input type="number" step="0.01" id="ppi" name="ppi" required>
+            
+            <label for="cpu_brand">CPU Brand:</label>
+            <select id="cpu_brand" name="cpu_brand" required>
+                <option value="Intel Core i7">Intel Core i7</option>
+                <option value="Intel Core i5">Intel Core i5</option>
+                <option value="Intel Core i3">Intel Core i3</option>
+                <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                <!-- Add other CPU brands as needed -->
+            </select>
+            
+            <label for="hdd">HDD (GB):</label>
+            <input type="number" id="hdd" name="hdd" required>
+            
+            <label for="ssd">SSD (GB):</label>
+            <input type="number" id="ssd" name="ssd" required>
+            
+            <label for="gpu_brand">GPU Brand:</label>
+            <select id="gpu_brand" name="gpu_brand" required>
+                <option value="Nvidia">Nvidia</option>
+                <option value="AMD">AMD</option>
+                <option value="Intel">Intel</option>
+                <!-- Add other GPU brands as needed -->
+            </select>
+            
+            <label for="os">Operating System:</label>
+            <select id="os" name="os" required>
+                <option value="Windows">Windows</option>
+                <!-- <option value="macOS">MacOS</option> -->
+                <option value="Linux">Linux</option>
+                <option value="Chrome OS">Chrome OS</option>
+                <!-- Add other operating systems as needed -->
+            </select>
+            
+            <button type="submit">Predict Price</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
